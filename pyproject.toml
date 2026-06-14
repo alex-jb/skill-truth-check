@@ -1,0 +1,66 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skill-truth-check"
+version = "0.1.0"
+description = "Brier-style helpfulness audit for SKILL.md files — does the skill do what it claims?"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "alex-jb" }]
+requires-python = ">=3.11"
+keywords = [
+    "claude",
+    "anthropic",
+    "skill",
+    "agent-skills",
+    "brier",
+    "audit",
+    "calibration",
+    "skills.sh",
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Quality Assurance",
+]
+dependencies = [
+    "anthropic>=0.40.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/alex-jb/skill-truth-check"
+Repository = "https://github.com/alex-jb/skill-truth-check"
+Issues = "https://github.com/alex-jb/skill-truth-check/issues"
+
+[project.scripts]
+brier = "skill_truth_check.cli:main"
+
+[tool.setuptools]
+packages = ["skill_truth_check"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I"]
+ignore = ["E402"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-q"
