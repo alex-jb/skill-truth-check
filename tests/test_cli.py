@@ -6,18 +6,13 @@ uses for testability.
 """
 from __future__ import annotations
 
-import io
-import json
 import pathlib
-import sys
-from contextlib import redirect_stdout
 
 import pytest
 
 from skill_truth_check import audit as audit_mod
 from skill_truth_check.audit import audit_skill
 from skill_truth_check.cli import build_parser, main
-
 
 SAMPLE_SKILL = """---
 name: example-skill

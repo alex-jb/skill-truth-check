@@ -14,7 +14,6 @@ import os
 from dataclasses import dataclass
 from typing import Optional
 
-
 JUDGE_SYSTEM = """You are a calibrated judge. You will be given:
   (a) a Claude Code skill's DECLARED description (what it claims to do)
   (b) a synthetic USER PROMPT

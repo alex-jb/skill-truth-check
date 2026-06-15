@@ -23,7 +23,6 @@ from __future__ import annotations
 
 from typing import Iterable
 
-
 SCORE_MIN = 1
 SCORE_MAX = 5
 

@@ -16,7 +16,6 @@ import pathlib
 import re
 from dataclasses import dataclass, field
 
-
 FRONTMATTER_RE = re.compile(r"^---\s*\n(.*?)\n---\s*\n", re.DOTALL)
 
 
@@ -53,7 +52,6 @@ def parse_skill_md(text: str) -> SkillSpec:
     # Walk lines; capture top-level `key: value` pairs. Nested blocks are skipped
     # but their top-level key still records (with empty string) so we can detect
     # `metadata:` presence without parsing the subtree.
-    current_key = None
     for line in fm.splitlines():
         if not line.strip():
             continue
@@ -69,7 +67,6 @@ def parse_skill_md(text: str) -> SkillSpec:
             if value.startswith(("\"", "'")) and value.endswith(value[0]) and len(value) >= 2:
                 value = value[1:-1]
             fields[key] = value
-            current_key = key
     # required
     if "name" not in fields or not fields["name"]:
         raise SkillParseError("SKILL.md frontmatter missing required `name`")

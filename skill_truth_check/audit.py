@@ -26,7 +26,6 @@ from .judge import JudgeResult, judge_response, simulate_skill_response
 from .parse import SkillSpec, find_skill_md, parse_skill_md
 from .synthetic import generate_prompts
 
-
 HOME = pathlib.Path(os.environ.get("STC_HOME", str(pathlib.Path.home() / ".stc")))
 AUDITS = HOME / "audits.jsonl"
 

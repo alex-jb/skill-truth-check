@@ -7,7 +7,6 @@ import pytest
 
 from skill_truth_check.parse import SkillParseError, find_skill_md, parse_skill_md
 
-
 VALID = """---
 name: example-skill
 description: An example skill that does X when invoked with Y.
